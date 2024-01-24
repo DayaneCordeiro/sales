@@ -2,7 +2,6 @@ package dayane.cordeiro.io.vendas.service;
 
 import dayane.cordeiro.io.vendas.model.Client;
 import dayane.cordeiro.io.vendas.repository.ClientRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
