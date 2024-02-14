@@ -13,7 +13,7 @@ import java.util.List;
 
 @SpringBootApplication
 @RestController
-public class VendasApplication {
+public class SalesApplication {
 
 	@Bean
 	public CommandLineRunner init(@Autowired ClientRepository repository) {
@@ -43,7 +43,7 @@ public class VendasApplication {
 
 	public static void main(String[] args) {
 
-		SpringApplication.run(VendasApplication.class, args);
+		SpringApplication.run(SalesApplication.class, args);
 	}
 
 }
