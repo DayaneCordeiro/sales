@@ -15,17 +15,46 @@ public class ClientRepository {
 
     private static String INSERT = "insert into client (name) values (?)";
     private static String SELECT_ALL = "select * from client";
+    private static String UPDATE = "update client set name = ? where id = ?";
+    private static String DELETE = "delete from client where id = ?";
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
     public Client save(Client client) {
+
         jdbcTemplate.update(INSERT, new Object[]{client.getName()} );
         return client;
     }
 
+    public Client update(Client client) {
+
+        jdbcTemplate.update(UPDATE, new Object[]{client.getName(), client.getId()});
+        return client;
+    }
+
+    public void delete(Client client) {
+
+        delete(client.getId());
+    }
+
+    public void delete(Integer id) {
+
+        jdbcTemplate.update(DELETE, new Object[]{id});
+    }
+
     public List<Client> getAll() {
-        return jdbcTemplate.query(SELECT_ALL, new RowMapper<Client>() {
+        return jdbcTemplate.query(SELECT_ALL, getRowMapper());
+    }
+
+    public List<Client> getByName(String name) {
+        return jdbcTemplate.query(SELECT_ALL.concat(" where name like ? "),
+                new Object[]{"%" + name + "%"},
+                getRowMapper());
+    }
+
+    private RowMapper<Client> getRowMapper() {
+        return new RowMapper<Client>() {
             @Override
             public Client mapRow(ResultSet resultSet, int rowNum) throws SQLException {
 
@@ -34,7 +63,8 @@ public class ClientRepository {
 
                 return new Client(id, name);
             }
-        });
+        };
     }
+
 
 }
