@@ -1,6 +1,6 @@
-package dayane.cordeiro.io.vendas.domain.repository;
+package dayane.cordeiro.io.sales.domain.repository;
 
-import dayane.cordeiro.io.vendas.domain.entity.Client;
+import dayane.cordeiro.io.sales.domain.entity.Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;

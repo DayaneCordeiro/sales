@@ -1,7 +1,7 @@
-package dayane.cordeiro.io.vendas;
+package dayane.cordeiro.io.sales;
 
-import dayane.cordeiro.io.vendas.domain.entity.Client;
-import dayane.cordeiro.io.vendas.domain.repository.ClientRepository;
+import dayane.cordeiro.io.sales.domain.entity.Client;
+import dayane.cordeiro.io.sales.domain.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

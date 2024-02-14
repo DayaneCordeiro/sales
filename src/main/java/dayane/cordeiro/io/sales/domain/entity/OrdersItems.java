@@ -1,4 +1,4 @@
-package dayane.cordeiro.io.vendas.domain.entity;
+package dayane.cordeiro.io.sales.domain.entity;
 
 public class OrdersItems {
 
