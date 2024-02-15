@@ -1,7 +1,16 @@
 package dayane.cordeiro.io.sales.domain.entity;
 
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity // escaneia a entidade e mapeia como uma tabela do banco de dados
 public class Client {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO) //autoincrement
     private Integer id;
     private String name;
 
