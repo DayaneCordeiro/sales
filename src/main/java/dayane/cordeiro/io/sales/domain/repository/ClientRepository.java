@@ -1,10 +1,12 @@
 package dayane.cordeiro.io.sales.domain.repository;
 
 import dayane.cordeiro.io.sales.domain.entity.Client;
+import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,8 +14,6 @@ import java.util.List;
 
 @Repository
 public class ClientRepository {
-
-    private static String INSERT = "insert into client (name) values (?)";
     private static String SELECT_ALL = "select * from client";
     private static String UPDATE = "update client set name = ? where id = ?";
     private static String DELETE = "delete from client where id = ?";
@@ -21,9 +21,12 @@ public class ClientRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public Client save(Client client) {
+    @Autowired
+    private EntityManager entityManager;
 
-        jdbcTemplate.update(INSERT, new Object[]{client.getName()} );
+    @Transactional
+    public Client save(Client client) {
+        entityManager.persist(client);
         return client;
     }
 

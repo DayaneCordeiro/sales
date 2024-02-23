@@ -23,21 +23,21 @@ public class SalesApplication {
 
 			List<Client> clients = repository.getAll();
 			clients.forEach(System.out::println);
-
-			clients.forEach(c -> {
-				c.setName(c.getName() + " atualizado");
-				repository.update(c);
-			});
-
-			clients = repository.getAll();
-			clients.forEach(System.out::println);
-
-			repository.getByName("Ta").forEach(System.out::println);
-
-			repository.delete(1);
-
-			clients = repository.getAll();
-			clients.forEach(System.out::println);
+//
+//			clients.forEach(c -> {
+//				c.setName(c.getName() + " atualizado");
+//				repository.update(c);
+//			});
+//
+//			clients = repository.getAll();
+//			clients.forEach(System.out::println);
+//
+//			repository.getByName("Ta").forEach(System.out::println);
+//
+//			repository.delete(1);
+//
+//			clients = repository.getAll();
+//			clients.forEach(System.out::println);
 		};
 	}
 
